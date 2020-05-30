@@ -1,9 +1,9 @@
 // @TODO: YOUR CODE HERE!
-var svgWidth = 800;
-var svgHeight = 500;
+var svgWidth = 900;
+var svgHeight = 600;
 
 var margin = {
-  top: 30,
+  top: 20,
   right: 30,
   bottom: 70,
   left: 50,
@@ -50,13 +50,16 @@ d3.csv("./assets/data/data.csv").then((data) => {
     .attr("text-anchor", "middle")
     .attr("font-size", "16px")
     .attr("fill", "black")
+    .style("font-weight", "bold")
     .text("In Poverty (%)");
+
   chartGroup
     .append("text")
     .attr("transform", `translate(-30, ${height / 2}) rotate(-90)`)
     .attr("text-anchor", "middle")
     .attr("font-size", "16px")
     .attr("fill", "black")
+    .style("font-weight", "bold")
     .text("Lacks Healthcare (%)");
 
   chartGroup
@@ -67,8 +70,9 @@ d3.csv("./assets/data/data.csv").then((data) => {
     .append("circle")
     .attr("cx", (d) => xLinearScale(d.poverty))
     .attr("cy", (d) => yLinearScale(d.healthcare))
-    .attr("r", 10)
-    .style("fill", "#8cc8ff");
+    .attr("r", 12)
+    .attr("opacity", ".75")
+    .style("fill", "9605c6");
 
   chartGroup
     .append("g")
@@ -79,8 +83,9 @@ d3.csv("./assets/data/data.csv").then((data) => {
     .text((d) => d.abbr)
     .attr("dy", (d) => yLinearScale(d.healthcare) + 4)
     .attr("dx", (d) => xLinearScale(d.poverty))
-    .style("font-size", "10px")
     .style("text-anchor", "middle")
     .style("stroke-width", "10px")
-    .style("fill", "black");
+    .style("fill", "white")
+    .style("font", "10px sans-serif")
+    .style("font-weight", "bold")
 });
